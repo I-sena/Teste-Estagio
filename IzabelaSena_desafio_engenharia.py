@@ -37,7 +37,8 @@ codigo_produto = {
     "Brinquedos": [556,888]
 }
 
-def identificandoRegiao(pacote=str) -> str :
+
+def identificandoRegiao(pacote: str) -> str :
     regiaoPacote = int(pacote)
     
     for regiao, codigo in codigo_regioes.items():
@@ -45,7 +46,7 @@ def identificandoRegiao(pacote=str) -> str :
             return regiao
 
 
-def identificandoTipo(pacote=str) -> str: 
+def identificandoTipo(pacote: str) -> str: 
     tipoPacote = int(pacote)
     
     for produto, codigo in codigo_produto.items():
@@ -53,7 +54,7 @@ def identificandoTipo(pacote=str) -> str:
             return produto
 
 
-def pacoteValido(pacote=str) -> bool:
+def pacoteValido(pacote: str) -> bool:
 
     regiaoOrigem = identificandoRegiao(pacote[0:3])
     regiaoDestino = identificandoRegiao(pacote[3:6])
@@ -93,6 +94,7 @@ def rotaPacotes(regiaoNaRota=list):
 def destino(pacote):
     return pacote[3:6]
 
+
 #-------------------------------------- ITEMS --------------------------------------------------#
 # 1. Identificar a região de destino de cada pacote, com totalização de pacotes (soma região);
 def item1():
@@ -114,8 +116,6 @@ def item1():
         print(f'A regiao {regiao} tem {somaPacotes} pacotes destinados.')
 
 
-
-
 #Saber quais pacotes possuem códigos de barras válidos e/ou inválidos;
 def item2():
     for pacote in lista_de_pacotes:
@@ -125,7 +125,6 @@ def item2():
             print(f'Pacote de codigo {pacote} é valido!\n')
         else:
             print(f'** Pacote de codigo {pacote} é invalido! **\n')
-
 
 
 #Identificar os pacotes que têm como origem a região Sul e Brinquedos em seu conteúdo;
@@ -140,7 +139,6 @@ def item3():
             print(f'** O pacote de codigo {pacote} nao tem a regiao Sul como origem e nao eh um brinquedo. **\n')
 
 
-
 #4. Listar os pacotes agrupados por região de destino (Considere apenas pacotes válidos);
 def item4():
     pacotesAgrupados = dict()
@@ -153,13 +151,11 @@ def item4():
         pacotesAgrupados.setdefault(regiaoDestino,list())
         pacotesAgrupados[regiaoDestino].append(pacote)
     
-
     for regiao in pacotesAgrupados:
         print(f'\n{"-"*10} {regiao.upper()} {"-"*10}\n')
         
         for pacote in pacotesAgrupados[regiao]:
             print(f'Codigo do pacote: {pacote}')
-
 
 
 #5. Listar o número de pacotes enviados por cada vendedor (Considere apenas pacotes válidos);
@@ -181,7 +177,6 @@ def item5():
             print(f'Codigo dos pacotes vendidos: {pacote}')
 
 
-
 #6. Gerar o relatório/lista de pacotes por destino e por tipo (Considere apenas pacotes válidos);
 def item6():
     infoPacote = dict()
@@ -196,7 +191,6 @@ def item6():
             regiaoEtipo = (regiaoDestino,tipoProduto)
             infoPacote.setdefault(pacote,list())
             infoPacote[pacote].append(regiaoEtipo)
-    
 
     print(f'\n{"-"*10} LISTA DE PACOTES POR REGIAO {"-"*10}\n')
 
@@ -206,7 +200,6 @@ def item6():
             if valores[0][0] == regiao:
                 print(f'Codigo do pacote: {pacote}')
 
-
     print(f'\n{"-"*10} LISTA DE PACOTES POR TIPO DE PRODUTO {"-"*10}\n')
 
     for tipo in codigo_produto.keys():
@@ -214,7 +207,6 @@ def item6():
         for pacote, valores in infoPacote.items():
             if valores[0][1] == tipo:
                 print(f'Codigo do pacote: {pacote}')
-
 
 
 #7. Se o transporte dos pacotes para o Norte passa pela Região Centro-Oeste, quais são os pacotes que devem ser despachados no mesmo caminhão?
@@ -227,7 +219,6 @@ def item7():
     else:
         for despachado in pacotesDespachados:
             print(f'Pacotes validos despachados: {despachado}\n')
-
 
 
 #8. Se todos os pacotes fossem uma fila qual seria a ordem de carga para o Norte no caminhão para descarregar os pacotes da Região Centro Oeste primeiro;
@@ -245,7 +236,6 @@ def item8():
         for despachado in pacotesDespachados:
             cont += 1
             print(f'{cont}- Pacotes validos a serem despachados: {despachado}\n')
-
 
 
 #9. No item acima considerar que as jóias fossem sempre as primeiras a serem descarregadas;
@@ -276,7 +266,6 @@ def item9():
             print(f'{cont}- Pacotes validos a serem despachados: {despachado}\n')
 
 
-
 #10. Listar os pacotes inválidos.
 def item10():
     print(f'{"-"*5} LISTA DE PACOTES INVALIDOS {"-"*5}\n')
@@ -286,7 +275,6 @@ def item10():
             print(f'Codigo do pacote: {pacote}.')
         else:
             continue
-
 
 
 #item1()
