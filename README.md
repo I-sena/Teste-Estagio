@@ -1,4 +1,4 @@
-# Teste-Estagio
+# Teste Estagio
 ## Desafio técnico para vaga de estágio em TI
 
 Nome: Izabela Caldeira Sena
@@ -8,4 +8,4 @@ Periodo atual: 4º Semestre
 Previsão de termino: 2024/1
 
 Informações da linguagem:
-Python 
+Python 3.10.0
